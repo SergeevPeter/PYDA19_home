@@ -1,0 +1,38 @@
+Комментарии преподавателя
+
+
+Петр, приветствую!
+У вас хорошая работа, все обязательные задания выполнены верно. Есть несколько рекомендаций:
+Зачет!
+
+--1
+в первой задаче можно было обойтись без вложенного цикла, если вспомнить, что и списки, и множества можно объединять не итерируясь по их элементам:
+ids_set = set()
+for id_ in ids.values():
+    ids_set = ids_set.union(id_) 
+print(ids_set)
+
+
+--2
+во второй задаче так же можно было обойтись без вложенного цикла:
+words_count = []
+ 
+for query in queries:
+    words = query.split(" ")
+    words_count.append(len(words))
+ 
+for el in set(words_count):
+    print(f'Поисковых запросов, содержащих {el} слов(а): {words_count.count(el)/(len(queries)) :.2%} ')
+
+предлагаю ознакомиться с одним из возможных решений последнего задания, надеюсь, поможет разобраться:
+person = 5
+shop_dict = {}
+for dish in cook_book.values():
+	for ingr in dish:
+    	if (ingr['ingridient_name'], ingr['measure']) not in shop_dict:
+        	shop_dict[(ingr['ingridient_name'], ingr['measure'])] = {'quantity': ingr['quantity'] * person}
+    	else:
+        	shop_dict[(ingr['ingridient_name'], ingr['measure'])]['quantity'] += ingr['quantity'] * person
+
+for name, q in shop_dict.items():
+	print(f'{name[0]} {q["quantity"]}{name[1]}')
