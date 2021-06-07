@@ -1,0 +1,8 @@
+13/04/2021
+
+Добрый день, спасибо за решения.
+Все верно.
+
+В первом задании вместо цепочки .groupby('movieId').agg(['count'])['userId'].reset_index().sort_values('count', ascending=False) как вариант можно использовать метод value_counts().
+
+В задании 2 можно немного сократить код, используя для фильтра стран метод isin: data['country'].isin(['Latvia', 'Estonia', 'Lithuania']).
